@@ -1,0 +1,121 @@
+* Fri Mar 25 2022 jerome <jerome.levreau@vostoksystem.com> 2.5
+- build app to comply with sailfish 4.4.0.58 (sandboxing disabled)
+
+* Mon Aug 12 2019 jerome <jerome.levreau@vostoksystem.com> 2.4.8
+- can create new directory
+- correct stack management on move action
+- notification added on move/rename error
+- color correction on some non selectable item
+- album/track/directory properties panel added
+- can change date on directory
+- fix display of some empty artwork
+- fix on some translation
+
+* Mon Aug 5 2019 jerome <jerome.levreau@vostoksystem.com> 2.3.12
+- album get name and date from meta (if available)
+- on navigation, shorten menu
+- file management : delete, rename, move added
+- padding correction on configuration
+- updated email and maint url to vostoksystem.com
+
+*Thu May 16 2019 jerome <jerome.levreau@vostoksystem.eu> 2.2.6
+- Fix file order when recursively listen directory
+- Fix on Recent max file number cap
+- Fix graphics for light ambiances
+- Fix when old artwork still displayed if current song has none
+- control panel open/hidden keep previous state during session
+- updated palylist location according of new rules
+
+*Thu Apr 9  2019 jerome <jerome.levreau@vostoksystem.eu> 2.1.10
+- Fix in random pick where selection was capped to the recent limit instead of the full album list
+- replaced random generator
+- Fix the hint in Search panel that showed up every times
+- Fix a bad date formating in the indexing process
+
+* Sat Apr 6 2019 jerome <jerome.levreau@vostoksystem.eu> 2.1.6
+- Chinese translation added (thanks to khan)
+
+* Thu Apr 4 2019 jerome <jerome.levreau@vostoksystem.eu> 2.1.5
+- German translation added (thanks to christoph)
+
+* Wed Apr 3 2019 jerome <jerome.levreau@vostoksystem.eu> 2.1.4
+- hide deleted album from bookmark list
+- Spanish translation added (thanks to carmen)
+- metadata for opus, m4a, flac, ogg
+- added mime type mpc (still used ?)
+- ** mpc audio/x-musepack is not supported by current qt api
+
+* Fri Mar 29 2019 jerome <jerome.levreau@vostoksystem.eu> 2.0.15
+- new internal api, 80% is new code, more functionalities to come
+- on player, new control view
+- added length and tracks number on navigation, bookmarks, history, playlist
+- artwork and info load dynamically
+- new feature : "recent list of album"
+- added artwork on playlist
+- new algorithm for selecting an album randomly
+- app can be used now in landscape (finally !)
+- enhanced graphics and transition
+- use "cover.jpg" from directory for artwork if available
+- improved search indexation
+- indexation update automatically
+- additional information of search hit
+- can refresh db from options panel
+- fixed bug that made the app to crash on start if previous tracks were deleted
+- opus/m4a file support - play only for now, no info or metadata
+
+* Fri Apr 14 2017 jerome <jerome.levreau@vostoksystem.eu> 0.16.4
+- Can directly add a track to a playlist from the player
+- In player fixed bug for random play switch
+- 'current playlist' was confusing, renamed to 'player'
+
+* Fri Apr 14 2017 jerome <jerome.levreau@vostoksystem.eu> 0.16.2
+- new playlist management, can directly add track to a specific playlist from browser or player
+- form playlist : can rename, (delete) and edit list
+- bug fix when removing several playlist at once
+
+* Mon Apr 10 2017 jerome <jerome.levreau@vostoksystem.eu> 0.15.0
+- option to sort bookmarks by date, inverse date and name
+- bookmarks default to alpha order
+
+* Mon Nov 28 2016 jerome <jerome.levreau@vostoksystem.eu> 0.14.8
+- fix a regression in code making the app to crash when opening a m4a or tag less file
+- fix issue when refreshing database from search panel
+
+* Sat Nov 26 2016 jerome <jerome.levreau@vostoksystem.eu> 0.14.6
+- new : added random album pick up function
+- change : on listen / add all, now add song from current directory first
+- change : on navigation, pulldow, listen all is not recursive anymore
+- few graphics fixes / changes
+
+* Sat Nov 19 2016 jerome <jerome.levreau@vostoksystem.eu> 0.13.2
+- new : added timer / sleep time function
+- bug : wrong song length fixed (song over 30min)
+
+* Sat Nov 12 2016 jerome <jerome.levreau@vostoksystem.eu> 0.12.4
+- new : added album history
+
+* Thu Oct 20 2016 jerome <jerome.levreau@vostoksystem.eu> 0.11.1
+- new : added control on notification panel
+
+* Mon Oct 17 2016 jerome <jerome.levreau@vostoksystem.eu> 0.10.15
+- bug : bad decoding of id3tag making song informations unusable
+
+* Sun Oct 2 2016 jerome <jerome.levreau@vostoksystem.eu> 0.10.14
+- bug : on current playlist, waiting status works correctly (no more false no entry)
+- new : from directries, add all / play all clamp recursivity to around 150 items
+- new : on statup don't resume more than 50 items (to reduce loading time)
+- bug : clicking on item can open context menu when needed as expected
+- new : added some hints panel
+- bug : resume playlist at previous position
+
+* Sat Oct 1 2016 jerome <jerome.levreau@vostoksystem.eu> 0.10.7
+- bug : correction on filename encoding making some cached files unreadable
+- new : add all / play all is now recursive
+
+* Fri Sep 30 2016 jerome <jerome.levreau@vostoksystem.eu> 0.10.5
+- bug : new algo for rendering image on directory, list not freezing anymore
+- new : added opacity option on cover art for player, now default to 90%
+- new : added option to disable cover art on player
+- new : seek and skip control can be enable on statup by options
+
+

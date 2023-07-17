@@ -1,0 +1,19 @@
+<RCC>
+    <qresource prefix="/img">
+        <file alias="album">resources/img/album.png</file>
+        <file alias="lire">resources/img/lire.png</file>
+        <file alias="pause">resources/img/pause.png</file>
+        <file alias="precedent">resources/img/precedent.png</file>
+        <file alias="suivant">resources/img/suivant.png</file>
+        <file alias="logo">resources/img/logo.png</file>
+        <file alias="historique">resources/img/historique.png</file>
+        <file alias="son">resources/img/son.png</file>
+        <file alias="ajouterpl">resources/img/ajouterpl.png</file>
+        <file alias="nouvellepl">resources/img/nouvellepl.png</file>
+        <file alias="playlist">resources/img/playlist.png</file>
+        <file alias="poubelle">resources/img/poubelle.png</file>
+    </qresource>
+    <qresource prefix="/sql">
+        <file alias="init">resources/sql/init.sql</file>
+    </qresource>
+</RCC>

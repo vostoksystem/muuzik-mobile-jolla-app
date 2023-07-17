@@ -1,0 +1,92 @@
+#include "qdownloader.h"
+#include <QDebug>
+
+#include <nemonotifications-qt5/notification.h>
+
+/**
+ * @brief QDownloader::QDownloader
+ * @param parent
+ */
+QDownloader::QDownloader(QObject *parent) : QObject(parent) {
+    manager = new QNetworkAccessManager(this);
+}
+
+/**
+ * @brief QDownloader::~QDownloader
+ */
+QDownloader::~QDownloader() {
+    manager->deleteLater();
+}
+
+void QDownloader::setFile(const QString &source, const QString &target, const QString &message) {
+
+    notification=message;
+    QNetworkRequest request;
+    request.setUrl(QUrl(source));
+    reply = manager->get(request);
+
+    file = new QFile(target);
+    if(file->exists()) {
+        return;
+    }
+    file->open(QIODevice::WriteOnly);
+
+    connect(reply,SIGNAL(downloadProgress(qint64,qint64)),this,SLOT(onDownloadProgress(qint64,qint64)));
+    connect(manager,SIGNAL(finished(QNetworkReply*)),this,SLOT(onFinished(QNetworkReply*)));
+    connect(reply,SIGNAL(readyRead()),this,SLOT(onReadyRead()));
+    connect(reply,SIGNAL(finished()),this,SLOT(onReplyFinished()));
+}
+
+/**
+ * @brief QDownloader::onDownloadProgress
+ * @param bytesRead
+ * @param bytesTotal
+ */
+void QDownloader::onDownloadProgress(qint64 bytesRead,qint64 bytesTotal) {
+ //   qDebug(QString::number(bytesRead).toLatin1() +" - "+ QString::number(bytesTotal).toLatin1());
+}
+
+/**
+ * @brief QDownloader::onFinished
+ * @param reply
+ */
+void QDownloader::onFinished(QNetworkReply * reply) {
+  //  qDebug() << "downloaded " << file->fileName();
+
+    if(reply->isOpen()) {
+        reply->close();
+        reply->deleteLater();
+    }
+
+    if(file->isOpen())
+    {
+        file->close();
+        file->deleteLater();
+    }
+
+    if(notification.length()>0) {
+        Notification n;
+        n.setPreviewBody(notification);
+        n.setHintValue("x-nemo-icon", "image://theme/icon-s-cloud-download");
+        n.publish();
+
+    }
+}
+
+/**
+ * @brief QDownloader::onReadyRead
+ */
+void QDownloader::onReadyRead() {
+    file->write(reply->readAll());
+}
+
+/**
+ * @brief QDownloader::onReplyFinished
+ */
+void QDownloader::onReplyFinished() {
+    if(file->isOpen())
+    {
+        file->close();
+        file->deleteLater();
+    }
+}

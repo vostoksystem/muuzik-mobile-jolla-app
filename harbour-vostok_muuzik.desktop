@@ -1,0 +1,10 @@
+[Desktop Entry]
+Type=Application
+Icon=harbour-vostok_muuzik
+Exec=harbour-vostok_muuzik
+Name=Muuzik!
+
+[X-Sailjail]
+Sandboxing=Disabled
+OrganizationName=com.vostoksystem
+ApplicationName=Muuzik!
